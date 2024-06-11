@@ -27,18 +27,23 @@ def main():
         screen.blit(bg_img, [-x+3200, 0])
         screen.blit(bg_img2, [-x+4800, 0])
     
-
         key_lst = pg.key.get_pressed()
         if key_lst[pg.K_UP]:
-            kk_rect.move_ip((0, -1))
-        if key_lst[pg.K_DOWN]:
-            kk_rect.move_ip((0, 1))
-        if key_lst[pg.K_LEFT]:
-            kk_rect.move_ip((-1, 0))
-        if key_lst[pg.K_RIGHT]:
-            kk_rect.move_ip((2, 0))
+            i = 0
+            j = -1
+        elif key_lst[pg.K_DOWN]:
+            i = 0
+            j = 1
+        elif key_lst[pg.K_LEFT]:
+            i = -1
+            j = 0
+        elif key_lst[pg.K_RIGHT]:
+            i = 2
+            j = 0
         else:
-            kk_rect.move_ip((-1, 0))
+            i = -1
+            j = 0
+        kk_rect.move_ip((i, j))
         
         screen.blit(kk_img, kk_rect)  #kk_imgをkk_rectの設定に従って貼り付け
         pg.display.update()
