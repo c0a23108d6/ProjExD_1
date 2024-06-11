@@ -26,6 +26,7 @@ def main():
         screen.blit(bg_img2, [-x+1600, 0])
         screen.blit(bg_img, [-x+3200, 0])
         screen.blit(bg_img2, [-x+4800, 0])
+    
 
         key_lst = pg.key.get_pressed()
         if key_lst[pg.K_UP]:
@@ -35,11 +36,13 @@ def main():
         if key_lst[pg.K_LEFT]:
             kk_rect.move_ip((-1, 0))
         if key_lst[pg.K_RIGHT]:
-            kk_rect.move_ip((1, 0))
+            kk_rect.move_ip((2, 0))
+        else:
+            kk_rect.move_ip((-1, 0))
         
         screen.blit(kk_img, kk_rect)  #kk_imgをkk_rectの設定に従って貼り付け
         pg.display.update()
-        tmr += 1        
+        tmr += 1
         clock.tick(200)
 
 
